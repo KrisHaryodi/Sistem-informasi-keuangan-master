@@ -308,11 +308,11 @@ echo '<option value="'.$no++.'">'.$noo++.'.'.$querynama["nama"].'</option>';
          <input type="number" class="form-control" name="jumlah">
 		Sumber : 
          <select class="form-control" name="sumber">
-		 <option value="1" >1. Go-helper</option>
-		 <option value="2" >2. Desain Poster Lomba</option>
-		 <option value="3" >3. Instalasi Software</option>
-		 <option value="4" >4. Instalasi OS</option>
-		 <option value="5" >5. Buat Video Animasi</option>
+		 <option value="1" > Go-helper</option>
+		 <option value="2" > Freelance</option>
+		 <option value="3" > Jualan Online</option>
+		 <option value="4" > Endorse</option>
+		 <option value="5" > Adsense</option>
 		 </select>
         </div>
         <!-- footer modal -->
