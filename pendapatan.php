@@ -39,7 +39,7 @@ require ('sidebar.php'); ?>
           <div class="row">
 
             <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
+            <div class="col-lg-12 mb-4">
 
               <!-- Project Card Example -->
               <div class="card shadow mb-4">
@@ -146,45 +146,12 @@ require ('sidebar.php'); ?>
                 </div>
               </div>
 			  </div>
-			  
-			  
-			              <div class="col-lg-6">
-			                <!-- Collapsable Card Example -->
-              <div class="card shadow mb-4">
-                <!-- Card Header - Accordion -->
-                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                  <h6 class="m-0 font-weight-bold text-primary">Catatan 1</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="collapseCardExample">
-                  <div class="card-body">
-				  <?php $catatan1 = mysqli_query($koneksi, "SELECT catatan FROM catatan where id_catatan= 1");
-                  $catatan1 = mysqli_fetch_array($catatan1);
-				  echo $catatan1['catatan'];
-				  ?>
-				  </div>
-                </div>
-              </div>
-			                <div class="card shadow mb-4">
-                <!-- Card Header - Accordion -->
-                <a href="#collapseCardExample1" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample1">
-                  <h6 class="m-0 font-weight-bold text-primary">Catatan 2</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="collapseCardExample1">
-                  <div class="card-body">
-                  <?php $catatan2 = mysqli_query($koneksi, "SELECT * FROM catatan where id_catatan= 2");
-                  $catatan2 = mysqli_fetch_array($catatan2);
-				  echo $catatan2['catatan'];
-				  ?></div>
-                </div>
-              </div>
 			  </div>
 			  
 			  
 			  
 			           <!-- DataTales Example -->
-					   <div class="col-xl-8 col-lg-7">
+					   <div class="col-xl-12 col-lg-7">
 					   <button type="button" class="btn btn-success" style="margin:5px" data-toggle="modal" data-target="#myModalTambah"><i class="fa fa-plus"> Pemasukan</i></button><br>
 
           <div class="card shadow mb-4">
