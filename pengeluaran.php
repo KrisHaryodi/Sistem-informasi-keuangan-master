@@ -73,7 +73,7 @@ $tujuhhari= mysqli_fetch_array($tujuhhari);
           <div class="row">
 
             <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
+            <div class="col-lg-12 mb-4">
 
               <!-- Project Card Example -->
               <div class="card shadow mb-4">
@@ -180,49 +180,12 @@ $tujuhhari= mysqli_fetch_array($tujuhhari);
                 </div>
               </div>
 			  </div>
-			  
-			  
-			              <div class="col-lg-6">
-			                <!-- Collapsable Card Example -->
-              <div class="card shadow mb-4">
-                <!-- Card Header - Accordion -->
-                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                  <h6 class="m-0 font-weight-bold text-primary">Catatan 1</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="collapseCardExample">
-                  <div class="card-body">
-                    <?php
-					$catatan = mysqli_query($koneksi, "SELECT catatan From catatan WHERE id_catatan = 3");
-					$catatan = mysqli_fetch_array($catatan);
-					echo $catatan['catatan'];
-					?>
-                  </div>
-                </div>
-              </div>
-			                <div class="card shadow mb-4">
-                <!-- Card Header - Accordion -->
-                <a href="#collapseCardExample1" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample1">
-                  <h6 class="m-0 font-weight-bold text-primary">Catatan 2</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="collapseCardExample1">
-                  <div class="card-body">
-                     <?php
-					$catatan = mysqli_query($koneksi, "SELECT catatan From catatan WHERE id_catatan = 4");
-					$catatan = mysqli_fetch_array($catatan);
-					echo $catatan['catatan'];
-					?>
-                  </div>
-                </div>
-              </div>
-			  </div>
 			  </div>
 			  
 			<button type="button" class="btn btn-success" style="margin:5px" data-toggle="modal" data-target="#myModalTambah"><i class="fa fa-plus"> Keluaran</i></button><br>
            <!-- DataTales Example -->
 	<div class="row">
-		<div class="col-xl-8 col-lg-7">
+		<div class="col-xl-12 col-lg-7">
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Transaksi Keluar</h6>
