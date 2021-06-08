@@ -39,7 +39,6 @@ $pemasukan_hari_ini = mysqli_query($koneksi, "SELECT jumlah FROM pemasukan where
 $pemasukan_hari_ini = mysqli_fetch_array($pemasukan_hari_ini);
 
 
-
 $pemasukan=mysqli_query($koneksi,"SELECT * FROM pemasukan");
 while ($masuk=mysqli_fetch_array($pemasukan)){
 $arraymasuk[] = $masuk['jumlah'];
@@ -348,9 +347,9 @@ var ctx = document.getElementById("lineChart").getContext('2d');
 var lineChart = new Chart (ctx, {
   type: 'line',
   data: {
-    labels: ["7 hari lalu","6 hari lalu", "5 hari lalu", "4 hari lalu", "3 hari lalu", "2 hari lalu", "1 hari lalu", "Sisa"],
+    labels: ["1 hari lalu","2 hari lalu", "3 hari lalu", "4 hari lalu", "5 hari lalu", "6 hari lalu", "7 hari lalu"],
     datasets: [{
-      label: "Sisa Uang",
+      label: "Pendapatan",
       lineTension: 0.3,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",
@@ -362,8 +361,7 @@ var lineChart = new Chart (ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-       data: [<?php echo $pemasukan_hari_ini ?>],
-      /*data: [<?php echo $tujuhhari['0']?>, <?php echo $enamhari['0'] ?>, <?php echo $limahari['0'] ?>, <?php echo $empathari['0'] ?>, <?php echo $tigahari['0'] ?>, <?php echo $duahari['0'] ?>, <?php echo $satuhari ?>],*/
+      data: [<?php echo $satuhari['0']?>, <?php echo $duahari['0'] ?>, <?php echo $tigahari['0'] ?>, <?php echo $empathari['0'] ?>, <?php echo $limahari['0'] ?>, <?php echo $enamhari['0'] ?>, <?php echo $tujuhhari['0'] ?>],
     }],
   },
   options: {
