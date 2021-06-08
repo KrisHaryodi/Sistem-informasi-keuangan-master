@@ -291,7 +291,7 @@ $pengeluaran_tujuhhari= mysqli_fetch_array($pengeluaran_tujuhhari);
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-line">
-                    <canvas id="lineChart"></canvas>
+                    <canvas id="lineChart" style="height: 5%;"></canvas>
                   </div>
                 </div>
               </div>
