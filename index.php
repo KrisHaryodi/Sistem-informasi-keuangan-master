@@ -56,17 +56,10 @@ $jumlahkeluar = array_sum($arraykeluar);
 $uang = $jumlahmasuk - $jumlahkeluar;
 
 //untuk data chart area
-
-
-
-$sekarang =mysqli_query($koneksi, "SELECT jumlah FROM pemasukan
-WHERE tgl_pemasukan = CURDATE()");
-$sekarang = mysqli_fetch_array($sekarang);
-
+//Line-Pendapatan
 $satuhari =mysqli_query($koneksi, "SELECT jumlah FROM pemasukan
 WHERE tgl_pemasukan = CURDATE() - INTERVAL 1 DAY");
 $satuhari= mysqli_fetch_array($satuhari);
-
 
 $duahari =mysqli_query($koneksi, "SELECT jumlah FROM pemasukan
 WHERE tgl_pemasukan = CURDATE() - INTERVAL 2 DAY");
@@ -91,7 +84,39 @@ $enamhari= mysqli_fetch_array($enamhari);
 $tujuhhari =mysqli_query($koneksi, "SELECT jumlah FROM pemasukan
 WHERE tgl_pemasukan = CURDATE() - INTERVAL 7 DAY");
 $tujuhhari= mysqli_fetch_array($tujuhhari);
+
+
+//Line-Pengeluaran
+$pengeluaran_satuhari =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 1 DAY");
+$pengeluaran_satuhari= mysqli_fetch_array($pengeluaran_satuhari);
+
+$pengeluaran_duahari =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 2 DAY");
+$pengeluaran_duahari= mysqli_fetch_array($pengeluaran_duahari);
+
+$pengeluaran_tigahari =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 3 DAY");
+$pengeluaran_tigahari= mysqli_fetch_array($pengeluaran_tigahari);
+
+$pengeluaran_empathari =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 4 DAY");
+$pengeluaran_empathari= mysqli_fetch_array($pengeluaran_empathari);
+
+$pengeluaran_limahari =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 5 DAY");
+$pengeluaran_limahari= mysqli_fetch_array($pengeluaran_limahari);
+
+$pengeluaran_enamhari =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 6 DAY");
+$pengeluaran_enamhari= mysqli_fetch_array($pengeluaran_enamhari);
+
+$pengeluaran_tujuhhari =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 7 DAY");
+$pengeluaran_tujuhhari= mysqli_fetch_array($pengeluaran_tujuhhari);
 ?>
+
+
       <!-- Main Content -->
       <div id="content">
 
@@ -350,9 +375,11 @@ var lineChart = new Chart (ctx, {
     labels: ["1 hari lalu","2 hari lalu", "3 hari lalu", "4 hari lalu", "5 hari lalu", "6 hari lalu", "7 hari lalu"],
     datasets: [{
       label: "Pendapatan",
+      fill: false,
       lineTension: 0.3,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",
+      borderDash: [], 
       pointRadius: 3,
       pointBackgroundColor: "rgba(78, 115, 223, 1)",
       pointBorderColor: "rgba(78, 115, 223, 1)",
@@ -362,7 +389,25 @@ var lineChart = new Chart (ctx, {
       pointHitRadius: 10,
       pointBorderWidth: 2,
       data: [<?php echo $satuhari['0']?>, <?php echo $duahari['0'] ?>, <?php echo $tigahari['0'] ?>, <?php echo $empathari['0'] ?>, <?php echo $limahari['0'] ?>, <?php echo $enamhari['0'] ?>, <?php echo $tujuhhari['0'] ?>],
-    }],
+      spanGaps: true,
+    }, {
+      label: "Pengeluaran",
+      fill: true,
+      lineTension: 0.3,
+      backgroundColor: "rgba(78, 115, 223, 0.05)",
+      borderColor: "red",
+      borderDash: [],
+      pointRadius: 3,
+      pointBackgroundColor: "rgba(78, 115, 223, 1)",
+      pointBorderColor: "rgba(78, 115, 223, 1)",
+      pointHoverRadius: 3,
+      pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+      pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+      pointHitRadius: 10,
+      pointBorderWidth: 2,
+      data: [<?php echo $pengeluaran_satuhari['0']?>, <?php echo $pengeluaran_duahari['0'] ?>, <?php echo $pengeluaran_tigahari['0'] ?>, <?php echo $pengeluaran_empathari['0'] ?>, <?php echo $pengeluaran_limahari['0'] ?>, <?php echo $pengeluaran_enamhari['0'] ?>, <?php echo $pengeluaran_tujuhhari['0'] ?>],
+      spanGaps: false,
+    }]
   },
   options: {
     maintainAspectRatio: false,
@@ -406,7 +451,7 @@ var lineChart = new Chart (ctx, {
       }],
     },
     legend: {
-      display: false
+      display: true
     },
     tooltips: {
       backgroundColor: "rgb(255,255,255)",
