@@ -11,7 +11,7 @@ foreach($list as $lis){
     echo "username: ".$lis->username;
     echo "<br/> ";
     $nama = $lis->username;
-    $query = mysqli_query($koneksi,"INSERT INTO `admin` (`nama`) VALUES ('$nama')");
+    $query = mysqli_query($koneksi,"INSERT INTO `admin` (`nama`,`email`,`pass` ) VALUES ('$nama','$nama@mail.com','tes123')");
 };
 ?>
 
