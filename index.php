@@ -20,7 +20,7 @@ require 'cek-sesi.php';
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body id="page-top">
@@ -265,8 +265,8 @@ $tujuhhari= mysqli_fetch_array($tujuhhari);
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myLineChart"></canvas>
+                  <div class="chart-line">
+                    <canvas id="lineChart"></canvas>
                   </div>
                 </div>
               </div>
@@ -343,13 +343,14 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Area Chart Example
-var ctx = document.getElementById("myAreaChart");
-var myLineChart = new Chart(ctx, {
+
+var ctx = document.getElementById("lineChart").getContext('2d');
+var lineChart = new Chart (ctx, {
   type: 'line',
   data: {
     labels: ["7 hari lalu","6 hari lalu", "5 hari lalu", "4 hari lalu", "3 hari lalu", "2 hari lalu", "1 hari lalu", "Sisa"],
     datasets: [{
-      label: "Sisa",
+      label: "Sisa Uang",
       lineTension: 0.3,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",
@@ -361,7 +362,8 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [<?php echo $tujuhhari['0']?>, <?php echo $enamhari['0'] ?>, <?php echo $limahari['0'] ?>, <?php echo $empathari['0'] ?>, <?php echo $tigahari['0'] ?>, <?php echo $duahari['0'] ?>, <?php echo $satuhari['0'] ?>, <?php echo $uang/1000000 ?>],
+       data: [<?php echo $pemasukan_hari_ini ?>],
+      /*data: [<?php echo $tujuhhari['0']?>, <?php echo $enamhari['0'] ?>, <?php echo $limahari['0'] ?>, <?php echo $empathari['0'] ?>, <?php echo $tigahari['0'] ?>, <?php echo $duahari['0'] ?>, <?php echo $satuhari ?>],*/
     }],
   },
   options: {
@@ -447,7 +449,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: ["Pendapatan", "Pengeluaran"],
     datasets: [{
-      data: [<?php echo $jumlahmasuk/1000000 ?>, <?php echo $jumlahkeluar/1000000 ?>],
+      data: [<?php echo $jumlahmasuk ?>, <?php echo $jumlahkeluar ?>],
       backgroundColor: ['#4e73df', '#e74a3b', '#36b9cc'],
       hoverBackgroundColor: ['#2e59d9', '#e74a3b', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
