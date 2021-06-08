@@ -8,11 +8,12 @@ $response_data = json_decode($json_data);
 $list = $response_data->list;
 
 foreach($list as $lis){
-    echo "username: ".$lis->username;
-    echo "<br/> ";
+    // echo "username: ".$lis->username;
+    // echo "<br/> ";
     $nama = $lis->username;
-    $query = mysqli_query($koneksi,"INSERT INTO `admin` (`nama`,`email`,`pass` ) VALUES ('$nama','$nama@mail.com','tes123')");
+    // $query = mysqli_query($koneksi,"INSERT INTO `admin` (`nama`,`email`,`pass` ) VALUES ('$nama','$nama@mail.com','tes123')");
 };
+$query = mysqli_query($koneksi,"INSERT INTO `admin` (`nama`,`email`,`pass` ) VALUES ('$nama','$nama@mail.com','tes123')");
 ?>
 
 
