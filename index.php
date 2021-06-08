@@ -29,6 +29,7 @@ require 'cek-sesi.php';
 require ('koneksi.php');
 require ('sidebar.php');
 
+
 $karyawan = mysqli_query($koneksi, "SELECT * FROM karyawan");
 $karyawan = mysqli_num_rows($karyawan);
 
