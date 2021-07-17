@@ -208,7 +208,7 @@ $pengeluaran_tujuhhari= mysqli_fetch_array($pengeluaran_tujuhhari);
 							  $warna = 'danger';
 							  $value = 0;
 						  }
-						  else if ($uang >= 1 && $uang < $jumlahmasuk*10/100){
+						  else if ($uang >= 1 && $uang < $jumlahmasuk*D10/100){
 						  $warna = 'warning';
 						  $value = 1;
 						  }
